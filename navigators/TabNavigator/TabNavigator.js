@@ -2,13 +2,12 @@ import * as React from 'react'
 import { Text, View } from 'react-native'
 import { NavigationContainer } from '@react-navigation/native'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
-import StackNavigator from './navigators/StackNavigator/StackNavigator'
-import DrawerNavigator from './navigators/DrawerNavigator/DrawerNavigator'
+import StackNavigator from '../StackNavigator/StackNavigator'
 
-function Drawer() {
+function HomeScreen() {
     return (
         <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-            <Text>Drawer Navigation Should enter here!</Text>
+            <Text>Home!</Text>
         </View>
     )
 }
@@ -26,9 +25,9 @@ const Tab = createBottomTabNavigator()
 export default function App() {
     return (
         <NavigationContainer>
-            <Tab.Navigator initialRouteName="Home">
-                <Tab.Screen name="Drawer" component={DrawerNavigator} />
-                <Tab.Screen name="Home" component={StackNavigator} />
+            <Tab.Navigator>
+                <Tab.Screen name="Stack" component={StackNavigator} />
+                <Tab.Screen name="Home" component={HomeScreen} />
                 <Tab.Screen name="Settings" component={SettingsScreen} />
             </Tab.Navigator>
         </NavigationContainer>
